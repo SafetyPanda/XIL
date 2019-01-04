@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# XIL: XBPS Interpeter Layer: Utility that makes basic XBPS commands more sane
-# Copyright (c) James Gillman [jronaldgillman@gmail.com], gitlab: @safetypanda
+# XIL: XBPS Interpeter Layer: simple, easy to use, add-on to the XBPS package manager.
+# Copyright (C) James Gillman [jronaldgillman@gmail.com], gitlab: @safetypanda
 # See https://github.com/void-linux for more info on Void Linux & XBPS
 
-# Released under the GNU General Public License version 3+
+# Released under the GNU General Public License Version 3+
 # Refer to LICENSE file for license information.
 
 version="1.0"

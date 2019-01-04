@@ -12,7 +12,7 @@ It may have more "advanced" commands added eventually, but as of today it is foc
 Clone this repo, download the zip, or download the file. Add it to your $path. Make sure it has permissions to run.
 
 # Usage
-xil [OPTION] [<ARGUMENTS>]
+xil [OPTION] [ARGUMENTS]
 
 # Commands
 update            -> Update Repos

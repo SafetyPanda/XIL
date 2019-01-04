@@ -57,7 +57,7 @@ arg="$1"
 
 if [ -z $arg ]
 then
-  echo "ERROR: Options missing, try --help."
+  echo "ERROR: Options missing, try help."
   echo "usage: xil [OPTIONS] [<ARGUMENTS>]"
   exit 2
 fi

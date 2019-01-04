@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# xil: xbps "translation layer": Utility that makes basic XBPS commands more sane
+# XIL: XBPS Interpeter Layer: Utility that makes basic XBPS commands more sane
 # Copyright (c) James Gillman [jronaldgillman@gmail.com], gitlab: @safetypanda
-# See https://github.com/voidlinux for more info on Void Linux & XBPS
+# See https://github.com/void-linux for more info on Void Linux & XBPS
 
 # Released under the GNU General Public License version 3+
 # Refer to LICENSE file for license information.
@@ -11,23 +11,26 @@ version="1.0"
 
 version() 
 {
-  echo "*----------------------------------------------------------*"
-  echo "    xil Version $version"
+  echo "*----------------------------------------------------------------*"
+  echo " XIL: XBPS Interpeter Layer Version $version"
+  echo " James Gillman [jronaldgillman@gmail.com] gitlab: @safetypanda"
   echo ""
-  echo "    James Gillman [jronaldgillman@gmail.com]"
-  echo "    License: GPLv3+" 
-  echo "    XBPS version: $(xbps-query -v --version)"
-  echo "*----------------------------------------------------------*"
+  echo " Current XBPS version: $(xbps-query -v --version)"   
+  echo ""
+  echo " XIL Copyright (C) 2019  James Gillman"
+  echo " This program comes with ABSOLUTELY NO WARRANTY;"
+  echo " This is free software, and you are welcome to redistribute it "
+  echo " under certain conditions. Refer to included GNU License!"
+  echo "*----------------------------------------------------------------*"
   echo ""
 }
 
 usage()
 {
-  echo 
-  version
-  echo "Options: "
-  echo "xtl [OPTIONS] [SUBCOMMANDS] [<ARGS>]"
-
+  echo ""
+  echo "usage: xil [OPTIONS] [<ARGUMENTS>]"
+  echo ""
+  echo "Options:"
   echo "update            -> Update Repos"
   echo "upgrade           -> Upgrade System"
   echo "listrepos         -> Lists all configured Repos"
@@ -38,6 +41,7 @@ usage()
   echo "recursiveremove   -> Removes package(s) and it's dependencies"
   echo "autoremove        -> Removes orphaned packages"
   echo "help              -> Shows this dialog"
+  echo "details           -> Shows version, contact and license info"
  echo ""
 }
 
@@ -45,32 +49,40 @@ privCheck ()
 {
   if [[ "$EUID" -gt 0 ]]; then
     echo "ERROR: This operation requires escalated privileges. Exiting!"
-    exit 255
+    exit 1
   fi
 }
 
 arg="$1"
 
+if [ -z $arg ]
+then
+  echo "ERROR: Options missing, try --help."
+  echo "usage: xil [OPTIONS] [<ARGUMENTS>]"
+  exit 2
+fi
+	
 case "$arg" in
   update)
     shift
     privCheck
+    echo ""
     xbps-install -S
   ;;
 
   help)
-    shift
     usage
   ;;
 
   upgrade)
     shift
     privCheck
+    echo ""
     xbps-install -Suv
   ;;
   
   listrepos)
-    shift
+    echo ""
     xbps-query -v -L
   ;;
 
@@ -78,12 +90,14 @@ case "$arg" in
     shift
     privCheck
     while [ "$#" -gt 0 ]; do
+    echo ""
     xbps-install "$1"
     done
   ;;
 
   search)
     shift
+    echo ""
     xbps-query -Rs "$@"
   ;;
     
@@ -91,7 +105,7 @@ case "$arg" in
     shift
     privCheck
     if [ "$#" -lt 1 ]; then
-      msg "ERROR: argument missing, try --help."
+      echo "ERROR: Argument missing, try --help."
       exit 1
     fi
     xbps-install -S "$@"
@@ -101,9 +115,10 @@ case "$arg" in
     shift
     privCheck
     if [ "$#" -lt 1 ]; then
-      msg "ERROR: argument missing, try --help."
+      echo "ERROR: Argument missing, try --help."
       exit 1
     fi
+    echo ""
     xbps-remove "$@"
     ;;
 
@@ -111,7 +126,7 @@ case "$arg" in
     shift
     privCheck
     if [ "$#" -lt 1 ]; then
-      msg "ERROR: argument missing, try --help."
+      echo "ERROR: argument missing, try --help."
       exit 1
     fi
     xbps-remove -R "$@"
@@ -122,6 +137,16 @@ case "$arg" in
     privCheck
     xbps-remove -O
     ;;
+
+  details)
+    version
+    ;;
+
+  *)
+   echo "ERROR: Not a valid command, try --help"
+   exit 1
+   ;;
+
 esac
 
 exit 0

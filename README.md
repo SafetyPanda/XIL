@@ -5,11 +5,11 @@ I am terrible at naming things...
 XIL (pronounce zil, as in god*zil*la) is a simple, easy to use, add-on to the XBPS package manager.
 This is NOT a package manager or a replacement to XBPS as it only handles the basic commands.
 Void Linux is an awesome distro that more people should be using, but the package manager can be a little weird for people who have never used a package manager or coming from Ubuntu/Fedora/etc.
-So this introduces more "sane" install commands in the same way that APT and DNF handle theirs.
+So this introduces more "sane" install commands in the same way that APT and DNF handle theirs, or "interprets/translates" what the user wants into the proper XBPS command if they haven't dealt with a package manager.
 It may have more "advanced" commands added eventually, but as of today it is focused on general use cases.
 
 # Install
-Clone this repo, download the zip, or download the file. Add it to your $path. Make sure it has permissions to run.
+Clone this repo, download the zip, or download the file. Add it to your $PATH. Make sure it has permissions to run.
 
 # Usage
 xil [OPTION] [ARGUMENTS]

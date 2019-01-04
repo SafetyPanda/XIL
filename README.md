@@ -15,17 +15,17 @@ Clone this repo, download the zip, or download the file. Add it to your $path. M
 xil [OPTION] [ARGUMENTS]
 
 # Commands
-update            -> Update Repos
-upgrade           -> Upgrade System
-listrepos         -> Lists all configured Repos
-addrepo <ARGS>    -> Adds a Repository
-search <NAME>     -> Searches for packages using a name
-install <PKG(s)>  -> Installs package(s)
-remove <PKG(s)>   -> Removes package(s)
-recursiveremove   -> Removes package(s) and it's dependencies
-autoremove        -> Removes orphaned packages
-help              -> Shows this dialog
-details           -> Shows version, contact and license info
+- update            -> Update Repos
+- upgrade           -> Upgrade System
+- listrepos         -> Lists all configured Repos
+- addrepo <ARGS>    -> Adds a Repository
+- search <NAME>     -> Searches for packages using a name
+- install <PKG(s)>  -> Installs package(s)
+- remove <PKG(s)>   -> Removes package(s)
+- recursiveremove   -> Removes package(s) and it's dependencies
+- autoremove        -> Removes orphaned packages
+- help              -> Shows this dialog
+- details           -> Shows version, contact and license info
 
 # Dependencies
 Just bash. :)

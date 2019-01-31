@@ -30,6 +30,10 @@ xil [OPTION] [ARGUMENTS]
 # Dependencies
 Just bash. :)
 
+#In Progress
+- Command completion
+- Advanced commands
+
 # License
 
 Copyright (C) 2019  James Gillman [jronaldgillman@gmail.com]

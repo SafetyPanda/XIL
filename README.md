@@ -30,7 +30,7 @@ xil [OPTION] [ARGUMENTS]
 # Dependencies
 Just bash. :)
 
-#In Progress
+# In Progress
 - Command completion
 - Advanced commands
 
